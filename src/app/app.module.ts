@@ -10,10 +10,15 @@ import { MaterialModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import { WeekPlanComponent } from './week-plan/week-plan.component';
+import { PlanService } from './plan.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    WeekPlanComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +28,7 @@ import { AppComponent } from './app.component';
     FlexLayoutModule,
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [PlanService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
