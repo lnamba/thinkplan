@@ -6,8 +6,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule }    from '@angular/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from '@angular/material';
-import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -24,8 +22,6 @@ import { PlanService } from './plan.service';
     BrowserModule,
     FormsModule,
     HttpModule,
-    MaterialModule,
-    FlexLayoutModule,
     BrowserAnimationsModule,
   ],
   providers: [PlanService],

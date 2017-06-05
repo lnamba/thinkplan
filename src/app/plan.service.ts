@@ -10,10 +10,6 @@ export class PlanService {
   getPlans(){
     return this.http.get('http://localhost:3000/plan')
       .map(response => response.json())
-      // .catch((err:any) => {
-      //           console.log(err);
-      //           return Promise.reject(err)
-      //       });
   }
 
 }

@@ -16,11 +16,6 @@ export class WeekPlanComponent implements OnInit {
 
     this.getPlans()
 
-    // this.plans = this.planService.getPlans()
-    //   .catch(err => {
-    //     console.log(err)
-    //   })
-
   }
   getPlans() {
     this.planService.getPlans().subscribe(res => this.plans = res)

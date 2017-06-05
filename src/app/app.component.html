@@ -1,26 +1,12 @@
-<div fxLayout="column" fxFlex> <!-- fxLayout is this is container and fxFlex is saying everything else is a child -->
-    <md-toolbar color="primary">
-        <span>ThinkPlan</span>
-    </md-toolbar>
-    <md-sidenav-container fxFlex>
-        <md-sidenav-container mode="side" opened>
-            <md-tab-group>
-                <md-tab label="Days">
-                    <md-nav-list>
-                        <md-list-item *ngFor="let day of days">
-                            <span>{{ day.date | date }}</span>
-                        </md-list-item>
-                    </md-nav-list>
-                </md-tab>
-            </md-tab-group>
-        </md-sidenav-container>
-        <div class="content">
-            Page content
-        </div>
-    </md-sidenav-container>
-    <!--<div class="content">-->
-        <!--<login></login>-->
-        <week-plan></week-plan>
-    <!--</div>-->
+<div class="nav">
+    <h1>ThinkPlan</h1>
+    <ul>
+        <li>Home</li>
+    </ul>
 </div>
 
+<login></login>
+
+<!--<div class="footer">
+    &copy; 2017 Lauren Namba
+</div>-->
