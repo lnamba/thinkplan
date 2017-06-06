@@ -1,9 +1,18 @@
 
-<div class="card" *ngFor="let day of days">
-    <div class="card-title"><span>{{ day.date | date }}</span></div>
+<div id="utilities">
+    <span>Hello User!</span>
+    <button (click)="showDate()" class="btn">Add Plan</button>
+</div>
+<!--<form *ngIf="showDatePicker">-->
+    <input id="date" type="date">
+<!--</form>-->
+<div class="for-cards">
+    <div class="card" *ngFor="let day of days">
+    <div class="card-title"><span>{{ day.date | date:'yMMMMEEEEd' }}</span></div>
     <div class="card-body">
         <span></span>
-        <button routerLink="/{{ day.id }}/lessons">text</button>
-        
+        <button class="btn" routerLink="/{{ day.id }}/lessons">View Plan</button>
     </div>
 </div>
+</div>
+

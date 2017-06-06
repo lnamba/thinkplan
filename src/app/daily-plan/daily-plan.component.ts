@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import 'rxjs/Rx';
+import { LessonService } from '../lesson.service';
 
 @Component({
   selector: 'app-daily-plan',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./daily-plan.component.css']
 })
 export class DailyPlanComponent implements OnInit {
+  lessons: any[];
 
-  constructor() { }
+  constructor(private lessonService: LessonService) { }
 
   ngOnInit() {
+    this.getLessons()
+  }
+
+  getLessons() {
+    this.lessonService.getLessons().subscribe(res => this.lessons = res);
   }
 
 }

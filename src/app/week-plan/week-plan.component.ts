@@ -10,6 +10,7 @@ import { PlanService } from '../plan.service';
 export class WeekPlanComponent implements OnInit {
   lessons: any[];
   days: any[];
+  showDatePicker: false;
 
   constructor(private planService: PlanService) { }
 
@@ -17,6 +18,10 @@ export class WeekPlanComponent implements OnInit {
 
     this.getDays()
 
+  }
+
+  showDate(event) {
+    this.showDatePicker ? !this.showDatePicker : this.showDatePicker;
   }
 
   getLessons() {

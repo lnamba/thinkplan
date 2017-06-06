@@ -10,8 +10,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { WeekPlanComponent } from './week-plan/week-plan.component';
-import { PlanService } from './plan.service';
 import { DailyPlanComponent } from './daily-plan/daily-plan.component';
+import { PlanService } from './plan.service';
+import { LessonService } from './lesson.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { DailyPlanComponent } from './daily-plan/daily-plan.component';
       },
     ]),
   ],
-  providers: [PlanService],
+  providers: [PlanService, LessonService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

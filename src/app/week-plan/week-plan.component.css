@@ -1,3 +1,23 @@
+#utilities {
+    margin: 30px;
+}
+
+#utilities > span {
+    float: left;
+    font-size: 2em;
+    margin-bottom: 30px;
+}
+
+
+#utilities > button {
+    float: right
+}
+
+/*.for-cards {
+    align-items: flex-start;
+    flex-wrap: wrap
+}*/
+
 .card {
     height: 300px;
     width: 300px;
@@ -9,6 +29,8 @@
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
+    border-radius: 10px;
+    clear: both;
 }
 
 @media (max-width: 600px) {
@@ -30,5 +52,22 @@
 }
 
 .card-body {
-flex-grow: 1;
+    flex-grow: 1;
+}
+
+.btn {
+    background-color: #033B6F;
+    border-radius: 10px;
+    color: white;
+    height: 40px;
+    border: none;
+    font-size: 1.2em;
+    width: 120px;
+}
+
+.btn:hover {
+    background-color: #FFF;
+    color: #033B6F; 
+    border: 2px solid #033B6F;
+    cursor: pointer;
 }
