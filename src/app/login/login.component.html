@@ -1,6 +1,28 @@
-<div id="login">
-    <h2>Login</h2>
-    <form class="login-form">
+<div class="container">
+    <form  class="form-horizontal">
+        <fieldset>
+            <legend>Login</legend>
+            <div class="form-group">
+            <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+            <div class="col-lg-10">
+                <input type="text" class="form-control" id="inputEmail" placeholder="Email">
+            </div>
+            </div>
+            <div class="form-group">
+            <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+            <div class="col-lg-10">
+                <input type="password" class="form-control" id="inputPassword" placeholder="Password"> 
+            </div>
+            </div>
+            <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+                <button routerLink="/plan" type="submit" class="btn btn-primary">Submit</button>
+            </div>
+            </div>
+        </fieldset>
+    </form>
+    <!--<h2>Login</h2>-->
+    <!--<form class="login-form">
         <div class="form-group">
             <label for="email">Email: </label>
             <input type="text" id="email">
@@ -10,5 +32,5 @@
             <input type="text" id="password">
         </div>
         <input routerLink="/plan" class="btn jello" id="login-button" type="submit" value="Submit">
-    </form>
+    </form>-->
 </div>

@@ -1,5 +1,5 @@
 
-#login {
+/*#login {
     max-width: 60vw;
     margin: 40px auto;
     box-shadow: 3px 3px 5px 5px #CCC;
@@ -47,4 +47,9 @@ label {
     color: #000; 
     border: 2px solid #000;
     cursor: pointer;
+}*/
+
+.form-horizontal {
+    width: 60vw;
+    margin: 0 auto;
 }

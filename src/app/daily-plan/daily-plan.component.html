@@ -1,5 +1,6 @@
-<div class="for-lessons">
+<div class="lessons">
   <div *ngFor="let lesson of lessons">
-
+    <p>Time: {{ lesson.time | date:'shortTime' }}</p>
+    <p>Subject: {{ lesson.subject }}</p>
   </div>
 </div>

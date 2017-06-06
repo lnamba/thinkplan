@@ -2,15 +2,11 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('lessons', function(table) {
     table.increments();
-    table.datetime('time');
+    table.date('date_taught');
     table.string('subject').notNullable();
-    table.string('standard').notNullable();
-    table.text('essential_question').notNullable();
-    table.text('activities').notNullable();
+    table.text('content').notNullable();
     table.text('reflections');
-    table.text('notes');
-    table.integer('day_id').references('id').inTable('days');
-    table.integer('user_id').references('id').inTable('users').onDelete('cascade');
+    table.integer('user_id').references('id').inTable('users').notNullable();
   })
 };
 

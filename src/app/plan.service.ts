@@ -17,6 +17,11 @@ export class PlanService {
       .map(response => response.json())
   }
 
+  getLessonFromDay() {
+    return this.http.get('http://localhost:3000/plan/:id')
+      .map(response => response.json())
+  }
+
   // getSubjects(){
   //   return this.http.get('http://localhost:3000/plan/')
   //     .map(response => response.json())

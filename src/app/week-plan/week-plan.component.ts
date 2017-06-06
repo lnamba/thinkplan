@@ -11,6 +11,7 @@ export class WeekPlanComponent implements OnInit {
   lessons: any[];
   days: any[];
   showDatePicker: false;
+  lessonsFromDay: any[];
 
   constructor(private planService: PlanService) { }
 
@@ -26,6 +27,10 @@ export class WeekPlanComponent implements OnInit {
 
   getLessons() {
     this.planService.getLessons().subscribe(res => this.lessons = res);
+  }
+
+  getLessonFromDay() {
+    this.planService.getLessonFromDay().subscribe(res => this.lessonsFromDay = res);
   }
 
   getDays() {

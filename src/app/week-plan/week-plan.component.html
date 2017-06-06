@@ -3,9 +3,6 @@
     <span>Hello User!</span>
     <button (click)="showDate()" class="btn">Add Plan</button>
 </div>
-<!--<form *ngIf="showDatePicker">-->
-    <input id="date" type="date">
-<!--</form>-->
 <div class="for-cards">
     <div class="card" *ngFor="let day of days">
     <div class="card-title"><span>{{ day.date | date:'yMMMMEEEEd' }}</span></div>
