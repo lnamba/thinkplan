@@ -2,8 +2,13 @@
     height: 300px;
     width: 300px;
     margin: 30px;
-    float: left;
-    border: 5px solid black;
+    /*float: left;*/
+    border: 3px solid #033B6F;
+    background-color: #E1EEFA;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
 }
 
 @media (max-width: 600px) {
@@ -13,8 +18,17 @@
     }
 }
 
-/*@media (max-width: 665px) {
-    .card {
+.card-title {
+    flex-shrink: 0;
+    height: 40px;
+    width: 100%;
+    border-bottom: 3px solid #033B6F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+}
 
-    }
-}*/
+.card-body {
+flex-grow: 1;
+}

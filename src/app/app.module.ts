@@ -11,12 +11,14 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { WeekPlanComponent } from './week-plan/week-plan.component';
 import { PlanService } from './plan.service';
+import { DailyPlanComponent } from './daily-plan/daily-plan.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    WeekPlanComponent
+    WeekPlanComponent,
+    DailyPlanComponent
   ],
   imports: [
     BrowserModule,
@@ -31,6 +33,10 @@ import { PlanService } from './plan.service';
       {
         path: 'plan',
         component: WeekPlanComponent
+      },
+      {
+        path: ':id/lessons',
+        component: DailyPlanComponent
       },
     ]),
   ],

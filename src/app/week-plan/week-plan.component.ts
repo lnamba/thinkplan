@@ -27,6 +27,10 @@ export class WeekPlanComponent implements OnInit {
     this.planService.getDays().subscribe(res => this.days = res)
   }
 
+  // getSubjects() {
+  //   this.planService.get
+  // }
+
 
 
 }
