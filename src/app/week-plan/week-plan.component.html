@@ -1,5 +1,18 @@
+<div class="container">
+<h3>{{ getMonday() | date:'yMMMMEEEEd' }} - {{ getFriday() | date:'yMMMMEEEEd' }}</h3>
+<div class="row">
+    <div class="col-sm-6 col-md-4" *ngFor="let lesson of lessons">
+        <div class="thumbnail">
+        <div class="caption">
+            <h3>Thumbnail label</h3>
+            <p><a href="#" class="btn btn-primary" role="button">Button</a></p>
+        </div>
+        </div>
+    </div>
+</div>
+</div>
 
-<div id="utilities">
+<!--<div id="utilities">
     <span>Hello User!</span>
     <button (click)="showDate()" class="btn">Add Plan</button>
 </div>
@@ -11,5 +24,5 @@
         <button class="btn" routerLink="/{{ day.id }}/lessons">View Plan</button>
     </div>
 </div>
-</div>
+</div>-->
 

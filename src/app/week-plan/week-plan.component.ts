@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import 'rxjs/Rx';
 import { PlanService } from '../plan.service';
+import { LessonService } from '../lesson.service';
 
 @Component({
   selector: 'week-plan',
@@ -9,36 +10,40 @@ import { PlanService } from '../plan.service';
 })
 export class WeekPlanComponent implements OnInit {
   lessons: any[];
-  days: any[];
-  showDatePicker: false;
-  lessonsFromDay: any[];
-
-  constructor(private planService: PlanService) { }
+  getDateToday = new Date();
+  constructor(private planService: PlanService, private lessonService: LessonService) { }
 
   ngOnInit() {
 
-    this.getDays()
+    this.getLessons()
+    this.getMonday()
+    this.getFriday();
 
   }
 
-  showDate(event) {
-    this.showDatePicker ? !this.showDatePicker : this.showDatePicker;
+  getMonday() {
+    const dateToday = new Date();
+    const getDateToday = dateToday.getDay();
+    const diff = dateToday.getDate() - getDateToday + (getDateToday === 0 ? -6 : 1);
+    return new Date(dateToday.setDate(diff));
+  }
+
+  getFriday() {
+    const mon = this.getMonday();
+    return new Date(mon.setDate(mon.getDate() + 4));
   }
 
   getLessons() {
-    this.planService.getLessons().subscribe(res => this.lessons = res);
+    this.lessonService.getLessons().subscribe(res => this.lessons = res)
   }
 
-  getLessonFromDay() {
-    this.planService.getLessonFromDay().subscribe(res => this.lessonsFromDay = res);
-  }
 
-  getDays() {
-    this.planService.getDays().subscribe(res => this.days = res)
-  }
+  // getLessons() {
+  //   this.planService.getLessons().subscribe(res => this.lessons = res);
+  // }
 
-  // getSubjects() {
-  //   this.planService.get
+  // getLessonFromDay() {
+  //   this.planService.getLessonFromDay().subscribe(res => this.lessonsFromDay = res);
   // }
 
 
