@@ -7,7 +7,12 @@ export class PlanService {
 
   constructor(private http: Http) { }
 
-  getPlans(){
+  getLessons() {
+    return this.http.get('http://localhost:3000/lessons')
+      .map(response => response.json())
+  }
+
+  getDays(){
     return this.http.get('http://localhost:3000/plan')
       .map(response => response.json())
   }

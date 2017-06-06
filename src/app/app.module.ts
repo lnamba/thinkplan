@@ -22,7 +22,17 @@ import { PlanService } from './plan.service';
     BrowserModule,
     FormsModule,
     HttpModule,
-    BrowserAnimationsModule,
+    BrowserAnimationsModule, 
+    RouterModule.forRoot([
+      {
+        path: '',
+        component: LoginComponent
+      },
+      {
+        path: 'plan',
+        component: WeekPlanComponent
+      },
+    ]),
   ],
   providers: [PlanService],
   bootstrap: [AppComponent]

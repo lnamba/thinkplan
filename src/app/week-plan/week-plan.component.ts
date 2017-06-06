@@ -8,17 +8,25 @@ import { PlanService } from '../plan.service';
   styleUrls: ['./week-plan.component.css']
 })
 export class WeekPlanComponent implements OnInit {
-  plans: any[];
+  lessons: any[];
+  days: any[];
 
   constructor(private planService: PlanService) { }
 
   ngOnInit() {
 
-    this.getPlans()
+    this.getDays()
 
   }
-  getPlans() {
-    this.planService.getPlans().subscribe(res => this.plans = res)
+
+  getLessons() {
+    this.planService.getLessons().subscribe(res => this.lessons = res);
   }
+
+  getDays() {
+    this.planService.getDays().subscribe(res => this.days = res)
+  }
+
+
 
 }
