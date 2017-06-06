@@ -11,6 +11,8 @@ import { LessonService } from '../lesson.service';
 export class WeekPlanComponent implements OnInit {
   lessons: any[];
   getDateToday = new Date();
+  weekdays: any[];
+
   constructor(private planService: PlanService, private lessonService: LessonService) { }
 
   ngOnInit() {
@@ -18,7 +20,12 @@ export class WeekPlanComponent implements OnInit {
     this.getLessons()
     this.getMonday()
     this.getFriday();
+    this.weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
 
+  }
+
+  getLessons() {
+    this.lessonService.getLessons().subscribe(res => this.lessons = res)
   }
 
   getMonday() {
@@ -32,10 +39,9 @@ export class WeekPlanComponent implements OnInit {
     const mon = this.getMonday();
     return new Date(mon.setDate(mon.getDate() + 4));
   }
-
-  getLessons() {
-    this.lessonService.getLessons().subscribe(res => this.lessons = res)
-  }
+  
+  // weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+  
 
 
   // getLessons() {

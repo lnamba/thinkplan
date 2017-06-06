@@ -9,6 +9,7 @@ import { LessonService } from '../lesson.service';
 })
 export class DailyPlanComponent implements OnInit {
   lessons: any[];
+  lesson: any[];
 
   constructor(private lessonService: LessonService) { }
 
@@ -18,6 +19,10 @@ export class DailyPlanComponent implements OnInit {
 
   getLessons() {
     this.lessonService.getLessons().subscribe(res => this.lessons = res);
+  }
+
+  getSingleLesson() {
+    this.lessonService.getLessons().subscribe(res => this.lesson = res);
   }
 
 }
