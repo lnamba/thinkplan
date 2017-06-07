@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LessonService } from '../lesson.service';
+import { RouterModule, Routes, Router }  from '@angular/router';
 import 'rxjs/Rx';
 
 @Component({
@@ -9,8 +10,9 @@ import 'rxjs/Rx';
 })
 export class EditFormComponent implements OnInit {
   currentLesson = {};
+  lesson = {}
 
-  constructor(private lessonService: LessonService) { }
+  constructor(private lessonService: LessonService, private router: Router) { }
   
   ngOnInit() {
     this.getEditableLesson()
@@ -20,9 +22,11 @@ export class EditFormComponent implements OnInit {
     this.currentLesson = this.lessonService.getLessonToEdit()
   }
 
-  editLesson(){
-    console.log('the current lesson is' , this.currentLesson)
-    this.lessonService.editDailyLesson(this.currentLesson)
+  editLesson(lesson){
+    this.lessonService.editDailyLesson(lesson).subscribe(res => {
+      console.log(res)
+    })
+    this.router.navigate(['/day'])
   }
 
   

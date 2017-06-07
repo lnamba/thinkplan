@@ -35,12 +35,7 @@ export class WeekPlanComponent implements OnInit {
     this.getLessons()
     this.getMonday()
     this.getFriday();
-    this.showStuff()
 
-  }
-
-  showStuff() {
-    console.log(this.addForm.value)
   }
 
   createForm() {
