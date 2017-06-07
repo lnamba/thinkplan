@@ -29,7 +29,7 @@ import { EditFormComponent } from './edit-form/edit-form.component';
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    BrowserAnimationsModule, 
+    BrowserAnimationsModule,
     RouterModule.forRoot([
       {
         path: '',

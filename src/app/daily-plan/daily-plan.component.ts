@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import 'rxjs/Rx';
 import { LessonService } from '../lesson.service';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
-// import { ngbDatepicker } from '@ng-bootstrap/ng-bootstrap';
+import { RouterModule, Routes, Router }  from '@angular/router';
 
 @Component({
   selector: 'daily-plan',
@@ -22,7 +22,7 @@ export class DailyPlanComponent implements OnInit {
   // content = '';
   // reflections = '';
 
-  constructor(private lessonService: LessonService) {
+  constructor(private lessonService: LessonService, private router: Router) {
     // this.createForm()
   }
   
@@ -30,40 +30,18 @@ export class DailyPlanComponent implements OnInit {
     this.getLessons();
     this.collectSelectedDay()
     this.todaysDate();
-    // this.showStuff()
+    console.log(this.selected_day)
   }
-
-  // showStuff() {
-  //   console.log(this.addForm.value)
-  // }
-
-  // createForm() {
-  //   this.addForm = this.fb.group({
-  //     date: ['', Validators.required ],
-  //     subject: ['', Validators.required ],
-  //     content: ['', Validators.required ],
-  //     reflections: '',
-  //   })
-  // }
-
-  // addLesson(lesson) {
-  //   this.date = lesson.date;
-  //   this.subject = lesson.subject;
-  //   this.content = lesson.content;
-  //   this.reflections = lesson.reflections
-  // }
-
-  // showIt(){
-  //   this.showPlanForm = !this.showPlanForm;
-  // }
 
   getLessons() {
     this.lessonService.getLessons().subscribe(res => this.lessons = res);
   }
 
-  getSingleLesson() {
-    this.lessonService.getLessons().subscribe(res => this.lesson = res);
-  }
+  // getSingleLesson() {
+  //   this.lessonService.getLessons().subscribe(res => {
+  //     console.log(res)
+  //     this.lesson = res});
+  // }
 
   collectSelectedDay() {
     console.log('Collecting data from ', this.lessonService.getSelectedDay())
@@ -82,7 +60,10 @@ export class DailyPlanComponent implements OnInit {
   }
 
   deleteLesson(lesson){
-
+    this.lessonService.deleteDailyLesson(lesson).subscribe(res => {
+      console.log("Here is the res", res)
+      this.lessons = res});
+      this.router.navigate(['/plan'])
   }
 
 }

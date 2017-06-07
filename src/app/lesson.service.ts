@@ -37,21 +37,21 @@ export class LessonService {
       .map(response => response.json())
   }
 
-  setLessons() {
-
-  }
-
   getSingleLesson() {
     return this.http.get('http://localhost:3000/lessons/:id')
       .map(response => response.json())
   }
 
   editDailyLesson(lesson) {
-    return this.http.put(`/edit/${lesson.id}`, lesson)
+    return this.http.put(`http://localhost:3000/lessons/edit/${lesson.id}`, lesson)
       .map(response => {
       console.log("This is puts response ", response)
       response.json()})
-      
+  }
+
+  deleteDailyLesson(lesson) {
+    return this.http.delete(`http://localhost:3000/lessons/${lesson.id}`)
+      .map(res => res.json())
   }
 
 }
