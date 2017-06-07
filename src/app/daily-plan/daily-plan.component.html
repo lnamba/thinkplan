@@ -1,7 +1,7 @@
 <div class="container">  
   
   <h1 id="title">{{ today | date:'yMMMMEEEEd' }}</h1>
-  <button id="back" (click)="goBack()" class="btn btn-danger">Back to Weekly Plan</button>
+  <button id="back" (click)="goBack()" class="btn btn-primary">Back to Weekly Plan</button>
 
     <div id="for-cards">
       <div class="card" *ngFor="let lesson of selected_day">
@@ -10,7 +10,7 @@
             <p class="card-text lead">Content: {{ lesson.content }}</p>
             <p class="card-text lead">Reflections: {{ lesson.reflections }}</p>            
             <button class="btn btn-info" (click)="goToEdit(lesson)" routerLink="/edit">Edit</button>
-            <button class="btn btn-success" id="delete" (click)="deleteLesson(lesson)">Delete</button>
+            <button class="btn btn-danger" id="delete" (click)="deleteLesson(lesson)">Delete</button>
         </div>
       </div>
     </div>

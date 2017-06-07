@@ -29,6 +29,8 @@ export class EditFormComponent implements OnInit {
     this.router.navigate(['/day'])
   }
 
-  
+  goBack() {
+    this.router.navigate(['/day'])
+  }
 
 }

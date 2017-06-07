@@ -3,7 +3,7 @@
     <!--<h1 class="text-center">{{ today | date:'yMMMMEEEEd' }}</h1>-->
       <h1>{{ getMonday() | date:'yMMMMEEEEd' }} - {{ getFriday() | date:'yMMMMEEEEd' }}</h1>
     
-    <button id="add" (click)="showIt()" class="btn btn-danger">Add Lesson</button>
+    <button id="add" (click)="showIt()" class="btn btn-primary">Add Lesson</button>
 
 
   <form [formGroup]="addForm" class="form-horizontal" (ngSubmit)="addLesson(addForm.value)" id="add-form" [hidden]="showPlanForm" novalidate>
