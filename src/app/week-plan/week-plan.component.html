@@ -1,20 +1,53 @@
-<div class="container">
-
-
-
-
+<div class="container-fluid">
 
 <h3>{{ getMonday() | date:'yMMMMEEEEd' }} - {{ getFriday() | date:'yMMMMEEEEd' }}</h3>
 <div class="row">
-    <div class="col-sm-6 col-md-4" *ngFor="let lesson of lessons">
+    <div class="col-sm-6 col-md-4" *ngFor="let day of someDays; let i = index">
+        <div class="thumbnail">
+            <div class="caption">
+                <h3>{{ daysBetween[i] | date:'EEEE' }}</h3>
+                <p *ngFor="let sub of day">{{ sub.subject }}</p>
+                <button class="btn btn-primary">View Plan</button>
+            </div>
+        </div>
+    </div>
+    <!--<div class="col-sm-6 col-md-4">
         <div class="thumbnail">
         <div class="caption">
-            <h3 >{{ lesson.date_taught | date:'yMMMMEEEEd' }}</h3>
-            <!--<h3>{{ lesson.date_taught | date:'EEEE' }}</h3>-->
-            <p><a href="#" class="btn btn-primary" role="button">View Plan</a></p>
+            <h3>{{ daysBetween[1] | date:'EEEE' }}</h3>
+            <p *ngFor="let sub of tuesday">{{ sub.subject }}</p>
+            <button class="btn btn-primary">View Plan</button>
         </div>
         </div>
     </div>
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+        <div class="caption">
+            <h3>{{ daysBetween[2] | date:'EEEE' }}</h3>
+            <p *ngFor="let sub of wednesday">{{ sub.subject }}</p>
+            <button class="btn btn-primary">View Plan</button>
+        </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+        <div class="caption">
+            <h3>{{ daysBetween[3] | date:'EEEE' }}</h3>
+            <p *ngFor="let sub of thursday">{{ sub.subject }}</p>
+            <button class="btn btn-primary">View Plan</button>
+        </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+        <div class="caption">
+            <h3>{{ daysBetween[4] | date:'EEEE' }}</h3>
+            <h3>{{ lesson.date_taught | date:'EEEE' }}</h3>
+            <p *ngFor="let sub of friday">{{ sub.subject }}</p>
+            <button class="btn btn-primary">View Plan</button>
+        </div>
+        </div>
+    </div>-->
 </div>
 </div>
 
