@@ -1,6 +1,10 @@
 .card {
     margin: 30px 0;
 }
+
+#add {
+    float: right;
+}
 /*}*/
 /*#utilities {
     margin: 30px;

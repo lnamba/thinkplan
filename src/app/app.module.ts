@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule }   from '@angular/router';
 import 'hammerjs';
 import { FormsModule } from '@angular/forms';
@@ -13,19 +14,22 @@ import { WeekPlanComponent } from './week-plan/week-plan.component';
 import { DailyPlanComponent } from './daily-plan/daily-plan.component';
 import { PlanService } from './plan.service';
 import { LessonService } from './lesson.service';
+import { EditFormComponent } from './edit-form/edit-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     WeekPlanComponent,
-    DailyPlanComponent
+    DailyPlanComponent,
+    EditFormComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
-    BrowserAnimationsModule, 
+    BrowserAnimationsModule,
     RouterModule.forRoot([
       {
         path: '',
@@ -39,6 +43,14 @@ import { LessonService } from './lesson.service';
         path: 'day',
         component: DailyPlanComponent
       },
+      {
+        path: 'edit',
+        component: EditFormComponent
+      },
+      // {
+      //   path: 'day',
+      //   component: DailyPlanComponent
+      // },
     ]),
   ],
   providers: [PlanService, LessonService],
