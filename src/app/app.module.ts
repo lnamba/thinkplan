@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule }   from '@angular/router';
 import 'hammerjs';
 import { FormsModule } from '@angular/forms';
@@ -26,6 +27,7 @@ import { EditFormComponent } from './edit-form/edit-form.component';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     BrowserAnimationsModule, 
     RouterModule.forRoot([

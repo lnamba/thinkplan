@@ -12,7 +12,7 @@ export class DailyPlanComponent implements OnInit {
   lessons: any[];
   lesson: any[];
   selected_day: any[];
-  today = new Date();
+  today = {};
   showPlanForm = true;
   selected_lesson = {};
 
