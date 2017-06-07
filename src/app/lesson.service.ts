@@ -18,6 +18,12 @@ export class LessonService {
     this.selected_day = day; 
   }
 
+  addLesson({date, subject, content, reflections}) {
+    console.log("This is getting posted", {date, subject, content, reflections})
+    return this.http.post('http://localhost:3000/lessons', {date, subject, content, reflections})
+      .map(response => response.json())
+  }
+
   getLessonToEdit() {
     return this.selected_lesson
   }
@@ -29,6 +35,10 @@ export class LessonService {
   getLessons() {
     return this.http.get('http://localhost:3000/lessons')
       .map(response => response.json())
+  }
+
+  setLessons() {
+
   }
 
   getSingleLesson() {

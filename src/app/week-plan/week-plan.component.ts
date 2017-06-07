@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import 'rxjs/Rx';
 import { PlanService } from '../plan.service';
 import { LessonService } from '../lesson.service';
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'week-plan',
@@ -16,16 +18,59 @@ export class WeekPlanComponent implements OnInit {
   dateFormat: any[]
   someDays: any[];
   selected_day: any[]; 
+  showPlanForm = true;
+  addForm: FormGroup;
+  date = '';
+  subject = '';
+  content = '';
+  reflections = '';
+  // addedLesson: any[];
 
-  constructor(private planService: PlanService, private lessonService: LessonService) { }
+  constructor(private planService: PlanService, private lessonService: LessonService, private fb: FormBuilder) { 
+    this.createForm()
+  }
 
   ngOnInit() {
 
     this.getLessons()
     this.getMonday()
     this.getFriday();
-    // this.displayPlans()
+    this.showStuff()
 
+  }
+
+  showStuff() {
+    console.log(this.addForm.value)
+  }
+
+  createForm() {
+    this.addForm = this.fb.group({
+      date: ['', Validators.required ],
+      subject: ['', Validators.required ],
+      content: ['', Validators.required ],
+      reflections: '',
+    })
+  }
+
+  addLesson(lesson) {
+    this.date = lesson.date;
+    this.subject = lesson.subject;
+    this.content = lesson.content;
+    this.reflections = lesson.reflections;
+
+    this.lessonService.addLesson({date: this.date, subject: this.subject, content: this.content, reflections:this.reflections}).subscribe(res => {
+      
+      // this.addedLesson = res;
+      // this.lessons.push(this.addedLesson)
+      this.lessons = res
+      console.log(res)
+      console.log("Now heres the new array", this.lessons)
+    })
+    this.showPlanForm = !this.showPlanForm;
+  }
+
+  showIt(){
+    this.showPlanForm = !this.showPlanForm;
   }
 
   getLessons() {
@@ -42,6 +87,7 @@ export class WeekPlanComponent implements OnInit {
       let wednesday = [];
       let thursday = [];
       let friday = [];
+      
   
       while(curr <= end) {
         daysBetween.push(new Date(curr))
@@ -78,6 +124,10 @@ export class WeekPlanComponent implements OnInit {
       }
       this.someDays = [monday, tuesday, wednesday, thursday, friday]
     })
+  }
+
+  allLessons() {
+
   }
 
 

@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import 'rxjs/Rx';
 import { LessonService } from '../lesson.service';
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 // import { ngbDatepicker } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-daily-plan',
+  selector: 'daily-plan',
   templateUrl: './daily-plan.component.html',
   styleUrls: ['./daily-plan.component.css']
 })
@@ -13,20 +14,48 @@ export class DailyPlanComponent implements OnInit {
   lesson: any[];
   selected_day: any[];
   today = {};
-  showPlanForm = true;
+  // showPlanForm = true;
   selected_lesson = {};
+  // addForm: FormGroup;
+  // date = '';
+  // subject = '';
+  // content = '';
+  // reflections = '';
 
-  constructor(private lessonService: LessonService) { }
+  constructor(private lessonService: LessonService) {
+    // this.createForm()
+  }
   
   ngOnInit() {
     this.getLessons();
     this.collectSelectedDay()
     this.todaysDate();
+    // this.showStuff()
   }
 
-  showIt(){
-    this.showPlanForm = !this.showPlanForm;
-  }
+  // showStuff() {
+  //   console.log(this.addForm.value)
+  // }
+
+  // createForm() {
+  //   this.addForm = this.fb.group({
+  //     date: ['', Validators.required ],
+  //     subject: ['', Validators.required ],
+  //     content: ['', Validators.required ],
+  //     reflections: '',
+  //   })
+  // }
+
+  // addLesson(lesson) {
+  //   this.date = lesson.date;
+  //   this.subject = lesson.subject;
+  //   this.content = lesson.content;
+  //   this.reflections = lesson.reflections
+  // }
+
+  // showIt(){
+  //   this.showPlanForm = !this.showPlanForm;
+  // }
 
   getLessons() {
     this.lessonService.getLessons().subscribe(res => this.lessons = res);
