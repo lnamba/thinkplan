@@ -13,6 +13,7 @@ export class DailyPlanComponent implements OnInit {
   lesson: any[];
   selected_day: any[];
   today = new Date();
+  showPlanForm = true;
 
   constructor(private lessonService: LessonService) { }
   
@@ -20,6 +21,10 @@ export class DailyPlanComponent implements OnInit {
     this.getLessons();
     this.collectSelectedDay()
     this.todaysDate();
+  }
+
+  showIt(){
+    this.showPlanForm = !this.showPlanForm;
   }
 
   getLessons() {

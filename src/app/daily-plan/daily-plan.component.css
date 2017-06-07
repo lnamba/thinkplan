@@ -1,3 +1,11 @@
+#add {
+    margin-bottom: 30px;
+}
+
 #add-form {
-    margin-top: 40px; 
+    margin: 30px 0; 
+}
+
+.text-center {
+    margin-bottom: 20px;
 }

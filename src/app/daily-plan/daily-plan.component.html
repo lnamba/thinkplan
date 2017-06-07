@@ -1,9 +1,9 @@
 <div class="container">  
-  <button id="add" class="btn btn-primary pull-right">Add Plan</button>
+  <button id="add" (click)="showIt()" class="btn btn-primary">Add Plan</button>
 
-  <h1>{{ today | date:'yMMMMEEEEd' }}</h1>
+  <h1 class="text-center">{{ today | date:'yMMMMEEEEd' }}</h1>
 
-  <form class="form-horizontal" (ngSubmit)="addPlan()" id="add-form">
+  <form class="form-horizontal" (ngSubmit)="addPlan()" id="add-form" [hidden]="showPlanForm">
       <fieldset>
           <legend>Add New Plan</legend>
           <div class="form-group">
