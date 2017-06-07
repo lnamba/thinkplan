@@ -14,17 +14,9 @@ export class DailyPlanComponent implements OnInit {
   lesson: any[];
   selected_day: any[];
   today = {};
-  // showPlanForm = true;
   selected_lesson = {};
-  // addForm: FormGroup;
-  // date = '';
-  // subject = '';
-  // content = '';
-  // reflections = '';
 
-  constructor(private lessonService: LessonService, private router: Router) {
-    // this.createForm()
-  }
+  constructor(private lessonService: LessonService, private router: Router) { }
   
   ngOnInit() {
     this.getLessons();
@@ -36,12 +28,6 @@ export class DailyPlanComponent implements OnInit {
   getLessons() {
     this.lessonService.getLessons().subscribe(res => this.lessons = res);
   }
-
-  // getSingleLesson() {
-  //   this.lessonService.getLessons().subscribe(res => {
-  //     console.log(res)
-  //     this.lesson = res});
-  // }
 
   collectSelectedDay() {
     console.log('Collecting data from ', this.lessonService.getSelectedDay())
