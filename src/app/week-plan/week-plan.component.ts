@@ -48,7 +48,7 @@ export class WeekPlanComponent implements OnInit {
         curr.setDate(curr.getDate() + 1);
       } 
       this.daysBetween = daysBetween;
-console.log(this.daysBetween[0])
+      
       function isoStringToDate(s) {
         var b = s.split(/\D/);
         return new Date(Date.UTC(b[0], --b[1], b[2], b[3]||0, b[4]||0, b[5]||0, b[6]||0));
@@ -62,9 +62,7 @@ console.log(this.daysBetween[0])
       for (var i = 0; i < this.dateFormat.length; i++) {
         for (var j = 0; j < this.daysBetween.length; j++) {
           if (this.dateFormat[i].date_taught.getDay() === this.daysBetween[j].getDay()) {
-            // console.log(this.dateFormat[i].date_taught.getDay())
             if (this.dateFormat[i].date_taught.getDay() === 1) {
-              console.log("I'm monday")
               monday.push(this.dateFormat[i])
             } else if (this.dateFormat[i].date_taught.getDay() === 2) {
               tuesday.push(this.dateFormat[i])
@@ -79,8 +77,6 @@ console.log(this.daysBetween[0])
         }
       }
       this.someDays = [monday, tuesday, wednesday, thursday, friday]
-
-      console.log(this.someDays)
     })
   }
 

@@ -8,6 +8,7 @@ export class LessonService {
   constructor(private http: Http) { }
 
   selected_day: any[]; 
+  selected_lesson: {};
 
   getSelectedDay(){
     return this.selected_day;
@@ -15,6 +16,14 @@ export class LessonService {
 
   setSelectedDay(day){
     this.selected_day = day; 
+  }
+
+  getLessonToEdit() {
+    return this.selected_lesson
+  }
+
+  setLessonToEdit(lesson) {
+    this.selected_lesson = lesson
   }
 
   getLessons() {
@@ -27,8 +36,12 @@ export class LessonService {
       .map(response => response.json())
   }
 
-  dayToday() {
-    return new Date();
+  editDailyLesson(lesson) {
+    return this.http.put(`/edit/${lesson.id}`, lesson)
+      .map(response => {
+      console.log("This is puts response ", response)
+      response.json()})
+      
   }
 
 }

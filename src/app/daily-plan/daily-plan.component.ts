@@ -14,6 +14,7 @@ export class DailyPlanComponent implements OnInit {
   selected_day: any[];
   today = new Date();
   showPlanForm = true;
+  selected_lesson = {};
 
   constructor(private lessonService: LessonService) { }
   
@@ -41,8 +42,18 @@ export class DailyPlanComponent implements OnInit {
   }
 
   todaysDate() {
-    // this.today = this.lessonService.dayToday()
     this.today = this.lessonService.getSelectedDay()[0].date_taught
+  }
+
+  goToEdit(lesson){
+    this.lessonService.setLessonToEdit(lesson);
+    this.selected_lesson = this.lessonService.getLessonToEdit()
+
+    // console.log("This lesson is your lesson", this.selected_lesson)
+  }
+
+  deleteLesson(lesson){
+
   }
 
 }

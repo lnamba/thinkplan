@@ -13,13 +13,15 @@ import { WeekPlanComponent } from './week-plan/week-plan.component';
 import { DailyPlanComponent } from './daily-plan/daily-plan.component';
 import { PlanService } from './plan.service';
 import { LessonService } from './lesson.service';
+import { EditFormComponent } from './edit-form/edit-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     WeekPlanComponent,
-    DailyPlanComponent
+    DailyPlanComponent,
+    EditFormComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +41,14 @@ import { LessonService } from './lesson.service';
         path: 'day',
         component: DailyPlanComponent
       },
+      {
+        path: 'edit',
+        component: EditFormComponent
+      },
+      // {
+      //   path: 'day',
+      //   component: DailyPlanComponent
+      // },
     ]),
   ],
   providers: [PlanService, LessonService],
