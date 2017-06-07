@@ -36,7 +36,7 @@ import { LessonService } from './lesson.service';
         component: WeekPlanComponent
       },
       {
-        path: 'lessons/:id',
+        path: 'day',
         component: DailyPlanComponent
       },
     ]),

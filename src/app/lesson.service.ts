@@ -7,6 +7,16 @@ export class LessonService {
 
   constructor(private http: Http) { }
 
+  selected_day: any[]; 
+
+  getSelectedDay(){
+    return this.selected_day;
+  }
+
+  setSelectedDay(day){
+    this.selected_day = day; 
+  }
+
   getLessons() {
     return this.http.get('http://localhost:3000/lessons')
       .map(response => response.json())
@@ -15,6 +25,10 @@ export class LessonService {
   getSingleLesson() {
     return this.http.get('http://localhost:3000/lessons/:id')
       .map(response => response.json())
+  }
+
+  dayToday() {
+    return new Date();
   }
 
 }

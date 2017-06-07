@@ -15,11 +15,7 @@ export class WeekPlanComponent implements OnInit {
   daysBetween: any[]
   dateFormat: any[]
   someDays: any[];
-  // monday: any[]
-  // tuesday: any[]
-  // wednesday: any[]
-  // thursday: any[]
-  // friday: any[]
+  selected_day: any[]; 
 
   constructor(private planService: PlanService, private lessonService: LessonService) { }
 
@@ -46,7 +42,7 @@ export class WeekPlanComponent implements OnInit {
       let wednesday = [];
       let thursday = [];
       let friday = [];
-     
+  
       while(curr <= end) {
         daysBetween.push(new Date(curr))
         curr.setDate(curr.getDate() + 1);
@@ -83,18 +79,22 @@ console.log(this.daysBetween[0])
         }
       }
       this.someDays = [monday, tuesday, wednesday, thursday, friday]
-      // this.monday = monday;
-      // this.tuesday = tuesday;
-      // this.wednesday = wednesday;
-      // this.thursday = thursday;
-      // this.friday = friday;
+
       console.log(this.someDays)
     })
   }
 
-  // displayPlans() {
-  //   console.log(this.daysBetween)
-  // }
+
+  viewIndividual(day){
+    this.lessonService.setSelectedDay(day);
+
+    /// $state.go("/individual_page"); 
+
+    this.selected_day =  this.lessonService.getSelectedDay(); 
+    
+    console.log("we would now go go another page that would pull this data : ",this.selected_day )
+  
+  }
 
   getMonday() {
     const dateToday = new Date();

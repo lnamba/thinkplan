@@ -11,11 +11,15 @@ import { LessonService } from '../lesson.service';
 export class DailyPlanComponent implements OnInit {
   lessons: any[];
   lesson: any[];
+  selected_day: any[];
+  today = new Date();
 
   constructor(private lessonService: LessonService) { }
   
   ngOnInit() {
-    this.getLessons()
+    this.getLessons();
+    this.collectSelectedDay()
+    this.todaysDate();
   }
 
   getLessons() {
@@ -24,6 +28,16 @@ export class DailyPlanComponent implements OnInit {
 
   getSingleLesson() {
     this.lessonService.getLessons().subscribe(res => this.lesson = res);
+  }
+
+  collectSelectedDay() {
+    console.log('Collecting data from ', this.lessonService.getSelectedDay())
+    this.selected_day = this.lessonService.getSelectedDay()
+  }
+
+  todaysDate() {
+    // this.today = this.lessonService.dayToday()
+    this.today = this.lessonService.getSelectedDay()[0].date_taught
   }
 
 }

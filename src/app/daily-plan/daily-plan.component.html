@@ -1,5 +1,7 @@
 <div class="container">  
-  <button id="add" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>  Plan</button>
+  <button id="add" class="btn btn-primary pull-right">Add Plan</button>
+
+  <h1>{{ today | date:'yMMMMEEEEd' }}</h1>
 
   <form class="form-horizontal" (ngSubmit)="addPlan()" id="add-form">
       <fieldset>
@@ -30,15 +32,13 @@
       </fieldset>
   </form>
 
-  <div class="panel panel-primary">
-    <div class="panel-heading">
-        <h3 class="panel-title">Panel primary</h3>
+    <div class="card" *ngFor="let day of selected_day">
+        <h3 class="card-header">{{ day.subject }}</h3>
+        <div class="card-block">
+            <p class="card-text lead">Content: {{ day.content }}</p>
+            <p class="card-text lead">Reflections: {{ day.reflections }}</p>            
+        </div>
     </div>
-    <div class="panel-body">
-        Panel content
-    </div>
-</div>
-
 </div>
 
 
