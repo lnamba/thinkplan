@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import 'rxjs/Rx';
 import { PlanService } from '../plan.service';
+import { LessonService } from '../lesson.service';
 
 @Component({
   selector: 'week-plan',
@@ -9,36 +10,114 @@ import { PlanService } from '../plan.service';
 })
 export class WeekPlanComponent implements OnInit {
   lessons: any[];
-  days: any[];
-  showDatePicker: false;
-  lessonsFromDay: any[];
+  getDateToday = new Date();
+  weekdays: any[] = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+  daysBetween: any[]
+  dateFormat: any[]
+  someDays: any[];
+  selected_day: any[]; 
 
-  constructor(private planService: PlanService) { }
+  constructor(private planService: PlanService, private lessonService: LessonService) { }
 
   ngOnInit() {
 
-    this.getDays()
+    this.getLessons()
+    this.getMonday()
+    this.getFriday();
+    // this.displayPlans()
 
-  }
-
-  showDate(event) {
-    this.showDatePicker ? !this.showDatePicker : this.showDatePicker;
   }
 
   getLessons() {
-    this.planService.getLessons().subscribe(res => this.lessons = res);
+    // this.lessonService.getLessons().subscribe(res => this.lessons = res)
+    this.lessonService.getLessons().subscribe(res => {
+      this.lessons = res;
+      const start = this.getMonday();
+      const end = this.getFriday();
+      const curr = new Date(start)
+      const daysBetween = [];
+      const dateFormat = []
+      let monday = [];
+      let tuesday = [];
+      let wednesday = [];
+      let thursday = [];
+      let friday = [];
+  
+      while(curr <= end) {
+        daysBetween.push(new Date(curr))
+        curr.setDate(curr.getDate() + 1);
+      } 
+      this.daysBetween = daysBetween;
+console.log(this.daysBetween[0])
+      function isoStringToDate(s) {
+        var b = s.split(/\D/);
+        return new Date(Date.UTC(b[0], --b[1], b[2], b[3]||0, b[4]||0, b[5]||0, b[6]||0));
+      }
+
+      this.lessons.map(function(i) {
+        i.date_taught = isoStringToDate(i.date_taught)
+        dateFormat.push(i)
+      })
+      this.dateFormat = dateFormat
+      for (var i = 0; i < this.dateFormat.length; i++) {
+        for (var j = 0; j < this.daysBetween.length; j++) {
+          if (this.dateFormat[i].date_taught.getDay() === this.daysBetween[j].getDay()) {
+            // console.log(this.dateFormat[i].date_taught.getDay())
+            if (this.dateFormat[i].date_taught.getDay() === 1) {
+              console.log("I'm monday")
+              monday.push(this.dateFormat[i])
+            } else if (this.dateFormat[i].date_taught.getDay() === 2) {
+              tuesday.push(this.dateFormat[i])
+            } else if (this.dateFormat[i].date_taught.getDay() === 3) {
+              wednesday.push(this.dateFormat[i])
+            } else if (this.dateFormat[i].date_taught.getDay() === 4) {
+              thursday.push(this.dateFormat[i])
+            } else {
+              friday.push(this.dateFormat[i])
+            }
+          }
+        }
+      }
+      this.someDays = [monday, tuesday, wednesday, thursday, friday]
+
+      console.log(this.someDays)
+    })
   }
 
-  getLessonFromDay() {
-    this.planService.getLessonFromDay().subscribe(res => this.lessonsFromDay = res);
+
+  viewIndividual(day){
+    this.lessonService.setSelectedDay(day);
+
+    /// $state.go("/individual_page"); 
+
+    this.selected_day =  this.lessonService.getSelectedDay(); 
+    
+    console.log("we would now go go another page that would pull this data : ",this.selected_day )
+  
   }
 
-  getDays() {
-    this.planService.getDays().subscribe(res => this.days = res)
+  getMonday() {
+    const dateToday = new Date();
+    const getDateToday = dateToday.getDay();
+    const diff = dateToday.getDate() - getDateToday + (getDateToday === 0 ? -6 : 1);
+    return new Date(dateToday.setDate(diff));
   }
 
-  // getSubjects() {
-  //   this.planService.get
+  getFriday() {
+    const mon = this.getMonday();
+    return new Date(mon.setDate(mon.getDate() + 4));
+  }
+  
+  // weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+  
+
+
+  // getLessons() {
+  //   this.planService.getLessons().subscribe(res => this.lessons = res);
+  // }
+
+  // getLessonFromDay() {
+  //   this.planService.getLessonFromDay().subscribe(res => this.lessonsFromDay = res);
   // }
 
 

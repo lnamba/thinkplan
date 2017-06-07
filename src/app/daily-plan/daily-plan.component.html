@@ -1,6 +1,51 @@
-<div class="lessons">
+<div class="container">  
+  <button id="add" class="btn btn-primary pull-right">Add Plan</button>
+
+  <h1>{{ today | date:'yMMMMEEEEd' }}</h1>
+
+  <form class="form-horizontal" (ngSubmit)="addPlan()" id="add-form">
+      <fieldset>
+          <legend>Add New Plan</legend>
+          <div class="form-group">
+          <label for="inputEmail" class="col-lg-2 control-label">Subject/Period</label>
+          <div class="col-lg-10">
+              <input type="text" class="form-control" id="inputSubject" placeholder="Subject/Period">
+          </div>
+          </div>
+          <div class="form-group">
+          <label for="inputContent" class="col-lg-2 control-label">Content</label>
+          <div class="col-lg-10">
+              <textarea class="form-control" rows="3"></textarea>
+          </div>
+          </div>
+          <div class="form-group">
+          <label for="inputReflections" class="col-lg-2 control-label">Reflections</label>
+          <div class="col-lg-10">
+              <textarea class="form-control" rows="3"></textarea>
+          </div>
+          </div>
+          <div class="form-group">
+          <div class="col-lg-10 col-lg-offset-2">
+              <button routerLink="/plan" type="submit" class="btn btn-primary">Submit</button>
+          </div>
+          </div>
+      </fieldset>
+  </form>
+
+    <div class="card" *ngFor="let day of selected_day">
+        <h3 class="card-header">{{ day.subject }}</h3>
+        <div class="card-block">
+            <p class="card-text lead">Content: {{ day.content }}</p>
+            <p class="card-text lead">Reflections: {{ day.reflections }}</p>            
+        </div>
+    </div>
+</div>
+
+
+
+<!--<div class="lessons">
   <div *ngFor="let lesson of lessons">
     <p>Time: {{ lesson.time | date:'shortTime' }}</p>
     <p>Subject: {{ lesson.subject }}</p>
   </div>
-</div>
+</div>-->
