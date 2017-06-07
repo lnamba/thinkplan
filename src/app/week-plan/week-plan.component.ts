@@ -53,10 +53,7 @@ export class WeekPlanComponent implements OnInit {
     this.reflections = lesson.reflections;
 
     this.lessonService.addLesson({date: this.date, subject: this.subject, content: this.content, reflections:this.reflections}).subscribe(res => {
-      
-      this.lessons = res
-      console.log(res)
-      console.log("Now heres the new array", this.lessons)
+      this.getLessons();
     })
     this.showPlanForm = !this.showPlanForm;
   }
@@ -95,6 +92,7 @@ export class WeekPlanComponent implements OnInit {
         i.date_taught = isoStringToDate(i.date_taught)
         dateFormat.push(i)
       })
+      
       this.dateFormat = dateFormat
       for (var i = 0; i < this.dateFormat.length; i++) {
         for (var j = 0; j < this.daysBetween.length; j++) {
@@ -119,11 +117,7 @@ export class WeekPlanComponent implements OnInit {
 
   viewIndividual(day){
     this.lessonService.setSelectedDay(day);
-
-    /// $state.go("/individual_page"); 
-
     this.selected_day =  this.lessonService.getSelectedDay(); 
-    
     console.log("we would now go go another page that would pull this data : ",this.selected_day )
   
   }
