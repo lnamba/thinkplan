@@ -52,4 +52,8 @@ export class DailyPlanComponent implements OnInit {
       this.router.navigate(['/plan'])
   }
 
+  goBack(){
+    this.router.navigate(['/plan'])
+  }
+
 }

@@ -1,8 +1,9 @@
 <div class="container">
 
-    <h1 class="text-center">{{ today | date:'yMMMMEEEEd' }}</h1>
+    <!--<h1 class="text-center">{{ today | date:'yMMMMEEEEd' }}</h1>-->
+      <h1>{{ getMonday() | date:'yMMMMEEEEd' }} - {{ getFriday() | date:'yMMMMEEEEd' }}</h1>
     
-    <button id="add" (click)="showIt()" class="btn btn-primary">Add Lesson</button>
+    <button id="add" (click)="showIt()" class="btn btn-danger">Add Lesson</button>
 
 
   <form [formGroup]="addForm" class="form-horizontal" (ngSubmit)="addLesson(addForm.value)" id="add-form" [hidden]="showPlanForm" novalidate>
@@ -40,24 +41,27 @@
       </fieldset>
   </form>
 
-    <h3>{{ getMonday() | date:'yMMMMEEEEd' }} - {{ getFriday() | date:'yMMMMEEEEd' }}</h3>
-    <!--<div class="row">
-        <div class="col-sm-6 col-md-4 card justify-content-center align-items-center card-block h-100" *ngFor="let day of someDays; let i = index">
-            <div class="thumbnail">
-                <div class="caption">
-                    <h3>{{ daysBetween[i] | date:'EEEE' }}</h3>
-                    <p *ngFor="let sub of day">{{ sub.subject }}</p>
-                    <button routerLink="/day" (click)="viewIndividual(day)" class="btn btn-primary">View Plan</button>
+  
+
+    <div id="for-cards">
+        <!--<div class="row">
+            <div class="col-sm-6 col-md-4 card justify-content-center align-items-center card-block h-100" *ngFor="let day of someDays; let i = index">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h3>{{ daysBetween[i] | date:'EEEE' }}</h3>
+                        <p *ngFor="let sub of day">{{ sub.subject }}</p>
+                        <button routerLink="/day" (click)="viewIndividual(day)" class="btn btn-primary">View Plan</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>-->
-  <div class="card" *ngFor="let day of someDays; let i = index">
-    <h3 class="card-header">{{ daysBetween[i] | date:'EEEE' }}</h3>
-        <div class="card-block">
-            <h4 class="card-title">Overview:</h4>
-            <p *ngFor="let sub of day">{{ sub.subject }}</p>
-            <button routerLink="/day" (click)="viewIndividual(day)" class="btn btn-primary">View Plan</button>
+        </div>-->
+    <div class="card" *ngFor="let day of someDays; let i = index">
+        <h3 class="card-header">{{ daysBetween[i] | date:'EEEE' }}</h3>
+            <div class="card-block">
+                <h4 class="card-title">Overview:</h4>
+                <p *ngFor="let sub of day">{{ sub.subject }}</p>
+                <button routerLink="/day" (click)="viewIndividual(day)" class="btn btn-primary">View Plan</button>
+            </div>
         </div>
     </div>
     
