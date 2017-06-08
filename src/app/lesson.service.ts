@@ -54,4 +54,9 @@ export class LessonService {
       .map(res => res.json())
   }
 
+  addUser({name, email, password}) {
+    return this.http.post('http://localhost:3000/signup', {name, email, password})
+      .map(res => res.json())
+  }
+
 }

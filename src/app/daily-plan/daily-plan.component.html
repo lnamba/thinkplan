@@ -9,8 +9,8 @@
         <div class="card-block">
             <p class="card-text lead">Content: {{ lesson.content }}</p>
             <p class="card-text lead">Reflections: {{ lesson.reflections }}</p>            
-            <button class="btn btn-outline-info" (click)="goToEdit(lesson)" routerLink="/edit">Edit</button>
-            <button class="btn btn-outline-danger" id="delete" (click)="deleteLesson(lesson)">Delete</button>
+            <button class="btn btn-info" (click)="goToEdit(lesson)" routerLink="/edit">Edit</button>
+            <button class="btn btn-danger" id="delete" (click)="deleteLesson(lesson)">Delete</button>
         </div>
       </div>
     </div>

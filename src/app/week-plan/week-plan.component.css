@@ -18,3 +18,8 @@
 #plan-title {
     margin-top: 50px;
 }
+
+.btn-purple {
+    background-color: #705697 !important;
+    color: #FFF;
+}

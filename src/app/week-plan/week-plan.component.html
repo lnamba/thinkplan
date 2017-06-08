@@ -60,7 +60,7 @@
             <div class="card-block">
                 <h4 class="card-title">Overview:</h4>
                 <p *ngFor="let sub of day">{{ sub.subject }}</p>
-                <button type="button" routerLink="/day" (click)="viewIndividual(day)" class="btn btn-outline-primary">View {{ daysBetween[i] | date:'EEEE' }}'s Plan</button>
+                <button type="button" routerLink="/day" (click)="viewIndividual(day)" class="btn btn-{{colors[i]}}">View {{ daysBetween[i] | date:'EEEE' }}'s Plan</button>
             </div>
         </div>
     </div>
