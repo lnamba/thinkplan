@@ -41,17 +41,16 @@ export class DailyPlanComponent implements OnInit {
   goToEdit(lesson){
     this.lessonService.setLessonToEdit(lesson);
     this.selected_lesson = this.lessonService.getLessonToEdit()
-
-    // console.log("This lesson is your lesson", this.selected_lesson)
   }
 
   deleteLesson(lesson){
     this.lessonService.deleteDailyLesson(lesson).subscribe(res => {
-      console.log("Here is the res", res)
-      // this.lessons = res
+       this.getLessons()
+       this.router.navigate(['/plan'])
     });
-      this.router.navigate(['/plan'])
-      this.getLessons()
+      
+     
+      
   }
 
   goBack(){

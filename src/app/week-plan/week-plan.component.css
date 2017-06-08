@@ -23,3 +23,11 @@
     background-color: #705697 !important;
     color: #FFF;
 }
+
+.card-header {
+    padding-left: 30px;
+}
+
+.card-block {
+    padding: 30px;
+}

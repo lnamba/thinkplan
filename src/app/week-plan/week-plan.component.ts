@@ -24,7 +24,8 @@ export class WeekPlanComponent implements OnInit {
   subject = '';
   content = '';
   reflections = '';
-  // colors: any[]
+  ifLesson = true;
+  
 
   constructor(private lessonService: LessonService, private fb: FormBuilder) { 
     this.createForm()
@@ -35,8 +36,7 @@ export class WeekPlanComponent implements OnInit {
     this.getLessons()
     this.getMonday()
     this.getFriday();
-
-
+    
   }
 
   colors = ['success', 'danger', 'info', 'warning', 'purple']
@@ -50,6 +50,10 @@ export class WeekPlanComponent implements OnInit {
     })
   }
 
+  trackBy(index, day) {
+    return day.id
+  }
+
   addLesson(lesson) {
     this.date = lesson.date;
     this.subject = lesson.subject;
@@ -59,6 +63,8 @@ export class WeekPlanComponent implements OnInit {
     this.lessonService.addLesson({date: this.date, subject: this.subject, content: this.content, reflections:this.reflections}).subscribe(res => {
       this.getLessons();
     })
+
+    this.addForm.reset()
     lesson.date = ''
     lesson.subject = '';
     lesson.content = '';
@@ -120,6 +126,7 @@ export class WeekPlanComponent implements OnInit {
         }
       }
       this.someDays = [monday, tuesday, wednesday, thursday, friday]
+
     })
   }
 
