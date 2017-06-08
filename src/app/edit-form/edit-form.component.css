@@ -1,3 +1,10 @@
 .btn-danger {
     margin-left: 10px;
 }
+
+#edit-form {
+    max-width: 80vw;
+    margin: 40px auto;
+    display: block;
+    height: 100vh;
+}

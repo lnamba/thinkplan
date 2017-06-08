@@ -4,6 +4,7 @@
 
 #for-cards {
     margin-top: 40px; 
+    margin-bottom: 50px;
 }
 
 #add {
@@ -12,4 +13,8 @@
 
 #plan-title {
     margin-top: 30px;
+}
+
+#plan-title {
+    margin-top: 50px;
 }
