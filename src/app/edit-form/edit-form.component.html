@@ -1,4 +1,5 @@
-<form class="form-horizontal" (ngSubmit)="editLesson(currentLesson)" id="edit-form" #editForm="ngForm">
+<div class="container">
+    <form class="form-horizontal" (ngSubmit)="editLesson(currentLesson)" id="edit-form" #editForm="ngForm">
       <fieldset>
           <legend>Edit Lesson</legend>
           <div class="form-group">
@@ -22,8 +23,9 @@
           <div class="form-group">
           <div class="col-lg-10 col-lg-offset-2">
               <button type="submit" class="btn btn-success">Submit</button>
-              <button (click)="goBack()" class="btn btn-danger">Back to Daily Plan</button>
+              <button (click)="goBack()" type="button" class="btn btn-warning">Back to Daily Plan</button>
           </div>
           </div>
       </fieldset>
   </form>
+</div>

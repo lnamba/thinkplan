@@ -49,9 +49,9 @@ export class DailyPlanComponent implements OnInit {
     this.lessonService.deleteDailyLesson(lesson).subscribe(res => {
       console.log("Here is the res", res)
       // this.lessons = res
-      // this.getLessons()
     });
       this.router.navigate(['/plan'])
+      this.getLessons()
   }
 
   goBack(){

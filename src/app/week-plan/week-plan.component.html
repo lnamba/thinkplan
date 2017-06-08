@@ -1,9 +1,9 @@
 <div class="container">
 
     <!--<h1 class="text-center">{{ today | date:'yMMMMEEEEd' }}</h1>-->
-      <h1>{{ getMonday() | date:'yMMMMEEEEd' }} - {{ getFriday() | date:'yMMMMEEEEd' }}</h1>
+      <h1 id="plan-title">{{ getMonday() | date:'yMMMMEEEEd' }} - {{ getFriday() | date:'yMMMMEEEEd' }}</h1>
     
-    <button id="add" (click)="showIt()" class="btn btn-primary">Add Lesson</button>
+    <button id="add" (click)="showIt()" class="btn btn-outline-primary">Add Lesson</button>
 
 
   <form [formGroup]="addForm" class="form-horizontal" (ngSubmit)="addLesson(addForm.value)" id="add-form" [hidden]="showPlanForm" novalidate>
@@ -60,7 +60,7 @@
             <div class="card-block">
                 <h4 class="card-title">Overview:</h4>
                 <p *ngFor="let sub of day">{{ sub.subject }}</p>
-                <button routerLink="/day" (click)="viewIndividual(day)" class="btn btn-primary">View Plan</button>
+                <button type="button" routerLink="/day" (click)="viewIndividual(day)" class="btn btn-{{colors[i]}}">View {{ daysBetween[i] | date:'EEEE' }}'s Plan</button>
             </div>
         </div>
     </div>

@@ -10,6 +10,13 @@ export class LoginComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
+  
+  // scroll(e) {
+  //   e.preventDefault()
+
+  // }
+
 
 }

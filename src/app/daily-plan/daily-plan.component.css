@@ -1,11 +1,18 @@
+
 #back {
     margin-top: 30px;
 }
 
 #for-cards {
     margin-top: 40px;
+    margin-bottom: 50px;
 }
 
 #delete {
     margin-left: 10px;
 }
+
+#title {
+    margin-top: 50px;
+}
+

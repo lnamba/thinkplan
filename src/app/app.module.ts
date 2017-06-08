@@ -14,6 +14,7 @@ import { WeekPlanComponent } from './week-plan/week-plan.component';
 import { DailyPlanComponent } from './daily-plan/daily-plan.component';
 import { LessonService } from './lesson.service';
 import { EditFormComponent } from './edit-form/edit-form.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { EditFormComponent } from './edit-form/edit-form.component';
     LoginComponent,
     WeekPlanComponent,
     DailyPlanComponent,
-    EditFormComponent
+    EditFormComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +47,10 @@ import { EditFormComponent } from './edit-form/edit-form.component';
       {
         path: 'edit',
         component: EditFormComponent
+      },
+      {
+        path: 'signup',
+        component: SignupComponent
       },
     ]),
   ],

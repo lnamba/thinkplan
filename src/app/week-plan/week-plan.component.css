@@ -4,8 +4,22 @@
 
 #for-cards {
     margin-top: 40px; 
+    margin-bottom: 50px;
 }
 
 #add {
     margin-top: 30px;
+}
+
+#plan-title {
+    margin-top: 30px;
+}
+
+#plan-title {
+    margin-top: 50px;
+}
+
+.btn-purple {
+    background-color: #705697 !important;
+    color: #FFF;
 }

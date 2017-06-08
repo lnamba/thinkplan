@@ -1,0 +1,58 @@
+<div class="container">
+  <!--<form  class="form-horizontal" id="signup">
+      <fieldset>
+          <legend>Sign up</legend>
+          <div class="form-group">
+            <label for="signupName" class="col-lg-2 control-label">Name</label>
+            <div class="col-lg-10">
+                <input type="text" class="form-control" id="signupName" placeholder="Name"> 
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="signupEmail" class="col-lg-2 control-label">Email</label>
+            <div class="col-lg-10">
+                <input type="text" class="form-control" id="signupEmail" placeholder="Email">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="signupPassword" class="col-lg-2 control-label">Password</label>
+            <div class="col-lg-10">
+                <input type="password" class="form-control" id="signupPassword" placeholder="Password"> 
+            </div>
+          </div>
+          <div class="form-group">
+          <div class="col-lg-10 col-lg-offset-2">
+              <button routerLink="/plan" type="submit" class="btn btn-outline-primary">Sign up</button>
+          </div>
+          </div>
+        </fieldset>
+    </form>-->
+    <form  class="form-horizontal" id="signup" (ngSubmit)="signupUser(signupForm.value)" [formGroup]="signupForm" novalidate>
+      <fieldset>
+          <legend>Sign up</legend>
+          <div class="form-group">
+            <label for="signupName" class="col-lg-2 control-label">Name</label>
+            <div class="col-lg-10">
+                <input type="text" class="form-control" id="signupName" placeholder="Name" formControlName="name"> 
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="signupEmail" class="col-lg-2 control-label">Email</label>
+            <div class="col-lg-10">
+                <input type="text" class="form-control" id="signupEmail" placeholder="Email" formControlName="email">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="signupPassword" class="col-lg-2 control-label">Password</label>
+            <div class="col-lg-10">
+                <input type="password" class="form-control" id="signupPassword" placeholder="Password" formControlName="password"> 
+            </div>
+          </div>
+          <div class="form-group">
+          <div class="col-lg-10 col-lg-offset-2">
+              <button type="submit" class="btn btn-outline-primary" [disabled]="!signupForm.valid">Sign up</button>
+          </div>
+          </div>
+        </fieldset>
+    </form>
+</div>

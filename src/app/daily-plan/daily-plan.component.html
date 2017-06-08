@@ -1,7 +1,7 @@
 <div class="container">  
   
   <h1 id="title">{{ today | date:'yMMMMEEEEd' }}</h1>
-  <button id="back" (click)="goBack()" class="btn btn-primary">Back to Weekly Plan</button>
+  <button id="back" (click)="goBack()" class="btn btn-outline-primary">Back to Weekly Plan</button>
 
     <div id="for-cards">
       <div class="card" *ngFor="let lesson of selected_day">

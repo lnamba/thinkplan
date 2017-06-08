@@ -2,31 +2,37 @@
     <div id="intro">
         <h1 class="text-center">Welcome to ThinkPlan</h1>
         <h3 class="text-center">Planning your way</h3>
-        <button type="button" class="btn btn-primary"><a href="#login" id="view">Try It</a></button>
+        <a class="btn btn-outline-primary" href="#login" id="view">Try It</a>
     </div>
 </div>
-<div class="container">
-    <form  class="form-horizontal" id="login">
-        <fieldset>
-            <legend>Login</legend>
-            <div class="form-group">
-            <label for="inputEmail" class="col-lg-2 control-label">Email</label>
-            <div class="col-lg-10">
-                <input type="text" class="form-control" id="inputEmail" placeholder="Email">
-            </div>
-            </div>
-            <div class="form-group">
-            <label for="inputPassword" class="col-lg-2 control-label">Password</label>
-            <div class="col-lg-10">
-                <input type="password" class="form-control" id="inputPassword" placeholder="Password"> 
-            </div>
-            </div>
-            <div class="form-group">
-            <div class="col-lg-10 col-lg-offset-2">
-                <button routerLink="/plan" type="submit" class="btn btn-primary">Login</button>
-                <p class="lead text-center">New here? <a routerLink="">Sign up</a></p>
-            </div>
-            </div>
-        </fieldset>
-    </form>
+<div class="container" id="info">
+    <div class="row">
+        <div class="col-md-12">
+             <div class="space" id="login"></div>
+                <h1 class="text-center">ThinkPlan</h1>
+                <form  class="form-horizontal">
+                    <fieldset>
+                        <legend>Login</legend>
+                        <div class="form-group">
+                            <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" id="inputEmail" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+                            <div class="col-lg-10">
+                                <input type="password" class="form-control" id="inputPassword" placeholder="Password"> 
+                            </div>
+                        </div>
+                        <div class="form-group" id="log-btn">
+                            <div class="col-lg-10 col-lg-offset-2">
+                                <button routerLink="/plan" type="submit" class="btn btn-outline-primary">Login</button>
+                            </div>
+                        </div>
+                        <p class="lead text-center">New here? <a routerLink="signup">Sign up.</a></p>
+                    </fieldset>
+                </form>
+        </div>
+    </div>
 </div>
