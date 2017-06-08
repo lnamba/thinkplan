@@ -3,7 +3,7 @@
     <!--<h1 class="text-center">{{ today | date:'yMMMMEEEEd' }}</h1>-->
       <h1 id="plan-title">{{ getMonday() | date:'yMMMMEEEEd' }} - {{ getFriday() | date:'yMMMMEEEEd' }}</h1>
     
-    <button id="add" (click)="showIt()" class="btn btn-outline-primary">Add Lesson</button>
+    <button id="add-new" (click)="showIt()" class="btn btn-outline-primary">Add Lesson</button>
 
 
   <form [formGroup]="addForm" class="form-horizontal" (ngSubmit)="addLesson(addForm.value)" id="add-form" [hidden]="showPlanForm" novalidate>
@@ -55,13 +55,51 @@
                 </div>
             </div>
         </div>-->
-    <div class="card" *ngFor="let day of someDays; let i = index">
+    <div class="card" *ngFor="let day of someDays; trackBy: trackBy; let i = index">
         <h3 class="card-header">{{ daysBetween[i] | date:'EEEE' }}</h3>
-            <div class="card-block">
-                <h4 class="card-title">Overview:</h4>
-                <p *ngFor="let sub of day">{{ sub.subject }}</p>
-                <button type="button" routerLink="/day" (click)="viewIndividual(day)" class="btn btn-{{colors[i]}}">View {{ daysBetween[i] | date:'EEEE' }}'s Plan</button>
-            </div>
+        <div class="card-block">
+            <h4 class="card-title">Overview:</h4>
+            <p *ngFor="let sub of day" class="lead">{{ sub.subject }}</p>
+            <button *ngIf="someDays[i].length > 0; else elseState" type="button" routerLink="/day" (click)="viewIndividual(day)" class="btn btn-{{colors[i]}}">View {{ daysBetween[i] | date:'EEEE' }}'s Plan</button>
+            <ng-template #elseState>
+                <p class="lead">Nothing yet...</p>
+                <a class="btn btn-primary" (click)="day.id = !day.id">Add a Lesson</a>
+                <form [formGroup]="addForm" class="form-horizontal" (ngSubmit)="addLesson(addForm.value)" id="add-form" [hidden]="!day.id" novalidate>
+                    <fieldset>
+                        <legend>Add New Lesson</legend>
+                        <div class="form-group">
+                            <label for="inputDate" class="col-lg-2 control-label">Date of Lesson</label>
+                            <div class="col-lg-10">
+                                <input type="date" class="form-control" id="inputDate" formControlName="date">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputSubject" class="col-lg-2 control-label">Subject/Period</label>
+                            <div class="col-lg-10">
+                                <input type="text" class="form-control" id="inputSubject" formControlName="subject">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputContent" class="col-lg-2 control-label">Content</label>
+                            <div class="col-lg-10">
+                                <textarea class="form-control" rows="3" formControlName="content"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputReflections" class="col-lg-2 control-label">Reflections</label>
+                            <div class="col-lg-10">
+                                <textarea class="form-control" rows="3" formControlName="reflections"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                        <div class="col-lg-10 col-lg-offset-2">
+                            <input type="submit" class="btn btn-primary" value="Submit" [disabled]="!addForm.valid">
+                        </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </ng-template>
+        </div>
         </div>
     </div>
     
