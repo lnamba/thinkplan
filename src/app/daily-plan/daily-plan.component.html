@@ -1,14 +1,18 @@
 <div class="container">  
   
-  <h2>{{ today | date:'yMMMMEEEEd' }}</h2>
-    <div class="card" *ngFor="let lesson of selected_day">
+  <h1 id="title">{{ today | date:'yMMMMEEEEd' }}</h1>
+  <button id="back" (click)="goBack()" class="btn btn-primary">Back to Weekly Plan</button>
+
+    <div id="for-cards">
+      <div class="card" *ngFor="let lesson of selected_day">
         <h3 class="card-header">{{ lesson.subject }}</h3>
         <div class="card-block">
             <p class="card-text lead">Content: {{ lesson.content }}</p>
             <p class="card-text lead">Reflections: {{ lesson.reflections }}</p>            
             <button class="btn btn-info" (click)="goToEdit(lesson)" routerLink="/edit">Edit</button>
-            <button class="btn btn-danger" (click)="deleteLesson(lesson)">Delete</button>
+            <button class="btn btn-danger" id="delete" (click)="deleteLesson(lesson)">Delete</button>
         </div>
+      </div>
     </div>
 </div>
 

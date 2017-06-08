@@ -24,9 +24,8 @@ export class WeekPlanComponent implements OnInit {
   subject = '';
   content = '';
   reflections = '';
-  // addedLesson: any[];
 
-  constructor(private planService: PlanService, private lessonService: LessonService, private fb: FormBuilder) { 
+  constructor(private lessonService: LessonService, private fb: FormBuilder) { 
     this.createForm()
   }
 
@@ -54,12 +53,7 @@ export class WeekPlanComponent implements OnInit {
     this.reflections = lesson.reflections;
 
     this.lessonService.addLesson({date: this.date, subject: this.subject, content: this.content, reflections:this.reflections}).subscribe(res => {
-      
-      // this.addedLesson = res;
-      // this.lessons.push(this.addedLesson)
-      this.lessons = res
-      console.log(res)
-      console.log("Now heres the new array", this.lessons)
+      this.getLessons();
     })
     this.showPlanForm = !this.showPlanForm;
   }
@@ -69,7 +63,6 @@ export class WeekPlanComponent implements OnInit {
   }
 
   getLessons() {
-    // this.lessonService.getLessons().subscribe(res => this.lessons = res)
     this.lessonService.getLessons().subscribe(res => {
       this.lessons = res;
       const start = this.getMonday();
@@ -99,6 +92,7 @@ export class WeekPlanComponent implements OnInit {
         i.date_taught = isoStringToDate(i.date_taught)
         dateFormat.push(i)
       })
+      
       this.dateFormat = dateFormat
       for (var i = 0; i < this.dateFormat.length; i++) {
         for (var j = 0; j < this.daysBetween.length; j++) {
@@ -121,18 +115,9 @@ export class WeekPlanComponent implements OnInit {
     })
   }
 
-  allLessons() {
-
-  }
-
-
   viewIndividual(day){
     this.lessonService.setSelectedDay(day);
-
-    /// $state.go("/individual_page"); 
-
     this.selected_day =  this.lessonService.getSelectedDay(); 
-    
     console.log("we would now go go another page that would pull this data : ",this.selected_day )
   
   }
@@ -148,19 +133,5 @@ export class WeekPlanComponent implements OnInit {
     const mon = this.getMonday();
     return new Date(mon.setDate(mon.getDate() + 4));
   }
-  
-  // weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
-  
-
-
-  // getLessons() {
-  //   this.planService.getLessons().subscribe(res => this.lessons = res);
-  // }
-
-  // getLessonFromDay() {
-  //   this.planService.getLessonFromDay().subscribe(res => this.lessonsFromDay = res);
-  // }
-
-
 
 }
