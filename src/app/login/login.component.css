@@ -19,18 +19,16 @@ div.for-router {
     color: #000;
 }
 
-/*.container {
-    width: 
-}*/
-
-.btn-primary {
-    margin: 30px auto;
-    display: block;
-} 
-
 #view {
-    color: #FFF;
+    margin: 30px auto;
     text-decoration: none;
+    display: block;
+    width: 200px;
+}
+
+#view:hover{
+    color: #FFF;
+    /*border-color: #FFF;*/
 }
 
 .form-horizontal {
