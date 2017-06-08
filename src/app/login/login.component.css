@@ -46,3 +46,10 @@ div.for-router {
 #info {
     margin: 120px auto;
 }
+
+#sign:hover {
+    text-decoration: none;
+    font-weight: bold;
+    color: #F7CB62;
+}
+

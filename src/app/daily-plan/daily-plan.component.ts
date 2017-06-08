@@ -48,9 +48,6 @@ export class DailyPlanComponent implements OnInit {
        this.getLessons()
        this.router.navigate(['/plan'])
     });
-      
-     
-      
   }
 
   goBack(){
