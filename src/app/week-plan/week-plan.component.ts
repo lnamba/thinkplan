@@ -65,6 +65,10 @@ export class WeekPlanComponent implements OnInit {
     })
 
     this.addForm.reset()
+    lesson.date = ''
+    lesson.subject = '';
+    lesson.content = '';
+    lesson.reflections = '';
     this.showPlanForm = !this.showPlanForm;
   }
 

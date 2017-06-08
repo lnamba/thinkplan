@@ -45,10 +45,12 @@ export class DailyPlanComponent implements OnInit {
 
   deleteLesson(lesson){
     this.lessonService.deleteDailyLesson(lesson).subscribe(res => {
+       this.getLessons()
+       this.router.navigate(['/plan'])
     });
-      this.router.navigate(['/plan'])
-      this.getLessons()
-      console.log("Here're your lessons",this.lessons)
+      
+     
+      
   }
 
   goBack(){
