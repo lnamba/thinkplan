@@ -12,8 +12,11 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     
   }
+  
+  // scroll(e) {
+  //   e.preventDefault()
 
-  signup() {
-  }
+  // }
+
 
 }
