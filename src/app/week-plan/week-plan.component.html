@@ -1,6 +1,5 @@
 <div class="container">
-
-    <!--<h1 class="text-center">{{ today | date:'yMMMMEEEEd' }}</h1>-->
+    
       <h1 id="plan-title">{{ getMonday() | date:'yMMMMEEEEd' }} - {{ getFriday() | date:'yMMMMEEEEd' }}</h1>
     
     <button id="add-new" (click)="showIt()" class="btn btn-outline-primary">Add Lesson</button>

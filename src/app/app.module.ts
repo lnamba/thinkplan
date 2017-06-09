@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule }    from '@angular/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {Ng2PageScrollModule} from 'ng2-page-scroll';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -31,6 +32,7 @@ import { SignupComponent } from './signup/signup.component';
     ReactiveFormsModule,
     HttpModule,
     BrowserAnimationsModule,
+    Ng2PageScrollModule.forRoot(),
     RouterModule.forRoot([
       {
         path: '',
