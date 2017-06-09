@@ -1,3 +1,20 @@
 * {
     margin: 0;
 }
+
+.carousel {
+    width: 100%;
+}
+
+.slide1, .slide3 {
+    color: #000;
+}
+
+.slide2 {
+    color: #FFF;
+}
+
+.carousel-caption {
+    bottom: 450px;
+}
+

@@ -1,22 +1,27 @@
 import { Component, OnInit } from '@angular/core';
+import { trigger, state, style, transition, animate, keyframes } from '@angular/animations'
+import {PageScrollConfig} from 'ng2-page-scroll';
 
 @Component({
   selector: 'login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    PageScrollConfig.defaultDuration = 500;
+  }
 
   ngOnInit() {
     
   }
   
-  // scroll(e) {
-  //   e.preventDefault()
-
-  // }
+//  scrollDown(location: string): void {
+//    console.log(location)
+//     window.location.hash = location
+//  }
 
 
 }

@@ -1,15 +1,44 @@
-<div id="image-header">
+<!--<div id="image-header">
     <div id="intro">
         <h1 class="text-center">Welcome to ThinkPlan</h1>
         <h3 class="text-center">Planning your way</h3>
-        <a class="btn btn-outline-primary" href="#login" id="view">Try It</a>
+        <a pageScroll class="btn btn-outline-primary" href="#login" id="view">Try It</a>
     </div>
-</div>
+</div>-->
+<carousel>
+  <slide>
+    <div class="carousel-caption">
+      <h1 class="slide1">Welcome to ThinkPlan</h1>
+      <h3 class="slide1">Planning your way</h3>
+      <a pageScroll class="btn btn-primary" href="#login" id="view">Try It</a>
+    </div>
+    <img class="carousel" src="https://static.pexels.com/photos/6342/woman-notebook-working-girl.jpg" alt="First slide">
+  </slide>
+  <slide>
+    <div class="carousel-caption">
+      <h1 class="slide2">Welcome to ThinkPlan</h1>
+      <h3 class="slide2">Planning your way</h3>
+      <a pageScroll class="btn btn-secondary" href="#login" id="view">Try It</a>
+    </div>
+    <img class="carousel" src="https://static.pexels.com/photos/306534/pexels-photo-306534.jpeg" alt="Second slide">
+  </slide>
+  <slide>
+    <div class="carousel-caption">
+      <h1 class="slide3">Welcome to ThinkPlan</h1>
+      <h3 class="slide3">Planning your way</h3>
+      <a pageScroll class="btn btn-primary" href="#login" id="view">Try It</a>
+    </div>
+    <img class="carousel" src="https://static.pexels.com/photos/207665/pexels-photo-207665.jpeg" alt="Third slide">
+  </slide>
+</carousel>
+
+
 <div class="container" id="info">
     <div class="row">
         <div class="col-md-12">
+            
              <div class="space" id="login"></div>
-                <h1 class="text-center">ThinkPlan</h1>
+                <h1 class="text-center" id="thinkplan">ThinkPlan</h1>
                 <form  class="form-horizontal">
                     <fieldset>
                         <legend>Login</legend>
@@ -30,7 +59,7 @@
                                 <button routerLink="/plan" type="submit" class="btn btn-outline-primary">Login</button>
                             </div>
                         </div>
-                        <p class="lead text-center">New here? <a routerLink="signup">Sign up.</a></p>
+                        <p class="lead text-center">New here? <a routerLink="signup" id="sign">Sign up.</a></p>
                     </fieldset>
                 </form>
         </div>
