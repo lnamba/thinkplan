@@ -62,7 +62,7 @@
             <button *ngIf="someDays[i].length > 0; else elseState" type="button" routerLink="/day" (click)="viewIndividual(day)" class="btn btn-{{colors[i]}}">View {{ daysBetween[i] | date:'EEEE' }}'s Plan</button>
             <ng-template #elseState>
                 <p class="lead">Nothing yet...</p>
-                <a class="btn btn-primary" (click)="day.id = !day.id">Add a Lesson</a>
+                <a class="btn btn-primary" href="javascrip:;" (click)="day.id = !day.id">Add Lesson</a>
                 <form [formGroup]="addForm" class="form-horizontal" (ngSubmit)="addLesson(addForm.value)" id="add-form" [hidden]="!day.id" novalidate>
                     <fieldset>
                         <legend>Add New Lesson</legend>

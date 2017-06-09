@@ -8,6 +8,8 @@ import { HttpModule }    from '@angular/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {Ng2PageScrollModule} from 'ng2-page-scroll';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -31,6 +33,8 @@ import { SignupComponent } from './signup/signup.component';
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
+    BsDropdownModule.forRoot(),
+    CarouselModule.forRoot(),
     BrowserAnimationsModule,
     Ng2PageScrollModule.forRoot(),
     RouterModule.forRoot([
