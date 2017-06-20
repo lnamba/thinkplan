@@ -20,6 +20,7 @@ export class WeekPlanComponent implements OnInit {
   selected_day: any[]; 
   showPlanForm = true;
   addForm: FormGroup;
+  addDayForm: FormGroup;
   date = '';
   subject = '';
   content = '';
@@ -69,7 +70,7 @@ export class WeekPlanComponent implements OnInit {
     lesson.subject = '';
     lesson.content = '';
     lesson.reflections = '';
-    this.showPlanForm = !this.showPlanForm;
+    // this.showPlanForm = !this.showPlanForm;
   }
 
   showIt(){
